@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitapp.R
 import com.example.fitapp.databinding.DaysListItemBinding
 
-class DaysAdapter :ListAdapter<DayModel, DaysAdapter.DayHolder> {
+class DaysAdapter :ListAdapter<DayModel, DaysAdapter.DayHolder>(MyComparator()) {
 
     class DayHolder(view: View) : RecyclerView.ViewHolder(view){
         private val binding = DaysListItemBinding.bind(view)

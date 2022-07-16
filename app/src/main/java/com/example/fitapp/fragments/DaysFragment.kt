@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.fitapp.R
+import com.example.fitapp.adapters.DayModel
 import com.example.fitapp.databinding.FragmentDaysBinding
 
 
@@ -21,6 +22,13 @@ class DaysFragment : Fragment() {
         return binding.root
     }
 
+    private fun fillDaysArray(): ArrayList<DayModel>{
+        val tArray = ArrayList<DayModel>()
+        resources.getStringArray(R.array.day_exercises).forEach {
+            tArray.add(DayModel(it, false))
+        }
+        return tArray
+    }
     companion object {
 
         @JvmStatic
