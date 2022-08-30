@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/days_list_item.xml" value="0.5" />
+        <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/exericise_list_fragment.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/fragment_days.xml" value="0.22" />
         <entry key="..\:/Users/Amonkrad/AndroidStudioProjects/FitApp/app/src/main/res/layout/activity_main.xml" value="0.20942883046237534" />
         <entry key="..\:/Users/Amonkrad/AndroidStudioProjects/FitApp/app/src/main/res/layout/activity_splash.xml" value="0.33" />
         <entry key="..\:/Users/Amonkrad/AndroidStudioProjects/FitApp/app/src/main/res/layout/days_list_item.xml" value="0.33" />

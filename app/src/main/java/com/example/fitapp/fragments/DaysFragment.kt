@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitapp.R
 import com.example.fitapp.adapters.DayModel
@@ -13,7 +14,7 @@ import com.example.fitapp.adapters.DaysAdapter
 import com.example.fitapp.databinding.FragmentDaysBinding
 
 
-class DaysFragment : Fragment() {
+class DaysFragment : Fragment(), DaysAdapter.Listener {
     private lateinit var binding: FragmentDaysBinding
 
 
@@ -25,12 +26,13 @@ class DaysFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initReview()
+        initRcView()
     }
-    private fun initReview() = with(binding) {
-        val adapter = DaysAdapter()
+    private fun initRcView() = with(binding) {
+        val adapter = DaysAdapter(this@DaysFragment)
         rcViewDays.layoutManager = LinearLayoutManager(activity as AppCompatActivity)
         rcViewDays.adapter = adapter
         adapter.submitList(fillDaysArray())
@@ -47,5 +49,10 @@ class DaysFragment : Fragment() {
 
         @JvmStatic
         fun newInstance() = DaysFragment()
+    }
+
+    override fun onClick(day: DayModel) {
+        com.example.fitapp.utils.FragmentManager.setFragment(ExericiseListFragment.newInstance(),
+            activity as AppCompatActivity)
     }
 }
