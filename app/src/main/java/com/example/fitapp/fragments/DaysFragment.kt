@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fitapp.R
 import com.example.fitapp.adapters.DayModel
 import com.example.fitapp.adapters.DaysAdapter
+import com.example.fitapp.adapters.ExerciseModel
 import com.example.fitapp.databinding.FragmentDaysBinding
 
 
@@ -45,6 +46,16 @@ class DaysFragment : Fragment(), DaysAdapter.Listener {
         }
         return tArray
     }
+
+    private fun fillExerciseList(day: DayModel){
+        val tempList = ArrayList<ExerciseModel>()
+        day.exercises.split(",").forEach{
+            val exerciseList = resources.getStringArray(R.array.exercise)
+            val exercise = exerciseList[it.toInt()]
+            val exerciseArray = exercise.split("|")
+            tempList.add(ExerciseModel(exerciseArray[0], exerciseArray[1], exerciseArray[2]))
+        }
+    }
     companion object {
 
         @JvmStatic
@@ -52,6 +63,7 @@ class DaysFragment : Fragment(), DaysAdapter.Listener {
     }
 
     override fun onClick(day: DayModel) {
+        fillExerciseList(day)
         com.example.fitapp.utils.FragmentManager.setFragment(ExericiseListFragment.newInstance(),
             activity as AppCompatActivity)
     }
